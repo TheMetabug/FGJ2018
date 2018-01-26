@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class HackingSpot : MonoBehaviour
 {
-   public string pointID;
-   public bool hacked;
+    public string pointID;
+    public bool hacked;
+    public float HackTime;
+    public float hackTimeLeft;
     public Material[] Materials;
     Renderer rd;
 

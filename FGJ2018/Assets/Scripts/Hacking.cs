@@ -31,14 +31,30 @@ public class Hacking : MonoBehaviour
     {
         if (hackable)
         {
+            
+
+            if (Input.GetKey(hackButton))
+            {
+                hackSpot.hackTimeLeft -= Time.deltaTime;
+                if (hackSpot.hackTimeLeft < 0)
+                {
+                    hackable = false;
+                    hackSpot.changeMaterial(1);
+                    hackSpot.hacked = true;
+                    Debug.Log("hacker hacked point " + hackSpot.pointID);
+                    hackScore++;
+                }
+            }
             if (Input.GetKeyUp(hackButton))
             {
                 hackable = false;
-                hackSpot.changeMaterial(1);
+                hackSpot.hackTimeLeft = hackSpot.HackTime;
+                /*hackSpot.changeMaterial(1);
                 hackSpot.hacked = true;            
                 Debug.Log("hacker hacked point " + hackSpot.pointID);
-                hackScore++;
+                hackScore++; */
             }
+
         }
     }
 }
