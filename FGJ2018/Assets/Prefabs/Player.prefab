@@ -55,8 +55,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4963502194807972}
-  - component: {fileID: 114483264540830606}
-  - component: {fileID: 114211254123602226}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -241,49 +239,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114211254123602226
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1515913303684488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef2b10a00a8e24f4bb81a1eefd821bc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114483264540830606
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1515913303684488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 250
-    i1: 98
-    i2: 31
-    i3: 105
-    i4: 137
-    i5: 7
-    i6: 123
-    i7: 116
-    i8: 56
-    i9: 130
-    i10: 198
-    i11: 11
-    i12: 133
-    i13: 125
-    i14: 195
-    i15: 226
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!114 &114689657124664244
 MonoBehaviour:
   m_ObjectHideFlags: 1
