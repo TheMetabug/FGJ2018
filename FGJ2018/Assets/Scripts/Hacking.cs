@@ -13,6 +13,7 @@ public class Hacking : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         Debug.Log(col.gameObject.name);
+        Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "hackSpot")
         {
             hackSpot = col.gameObject.GetComponent<HackingSpot>();
@@ -31,8 +32,6 @@ public class Hacking : MonoBehaviour
     {
         if (hackable)
         {
-            
-
             if (Input.GetKey(hackButton))
             {
                 hackSpot.hackTimeLeft -= Time.deltaTime;
