@@ -26,13 +26,13 @@ public class networkManager : NetworkManager {
 			selectedClass = chosenCharacter--;
 		Debug.Log("server add with message "+ selectedClass);
  
-        if (selectedClass == 0) {
-            GameObject player = Instantiate(Resources.Load("FPSController 1", typeof(GameObject))) as GameObject;
+        if (selectedClass == 1) {
+            GameObject player = Instantiate(Resources.Load("Player2", typeof(GameObject))) as GameObject;
             NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         }
  
-        if (selectedClass == 1) {
-            GameObject player = Instantiate(Resources.Load("Player", typeof(GameObject))) as GameObject;
+        if (selectedClass == 0) {
+            GameObject player = Instantiate(Resources.Load("Player1", typeof(GameObject))) as GameObject;
             NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         }
 	}

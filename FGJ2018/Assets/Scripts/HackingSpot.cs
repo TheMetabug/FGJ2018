@@ -9,6 +9,7 @@ public class HackingSpot : MonoBehaviour
     public float HackTime;
     public float hackTimeLeft;
     public Material[] Materials;
+    public Alert AlertSystem;
     Renderer rd;
 
     void Start()
@@ -21,7 +22,7 @@ public class HackingSpot : MonoBehaviour
         if (Col.gameObject.tag == "Player")
         {
             Debug.Log("hacker in point " + pointID);
-
+            
         }
     }
 
