@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlipScript : MonoBehaviour {
+public class FlipScript2 : MonoBehaviour {
 
-	public float flipTime = 2;
-	public float hackingTime = 0.25f;
-	public float hackingTimeNormal = 0.5f;
-	private float timer = 0;
-	public Hacking hackingScript;
+	public float flipTime = 0.15f;
+	public float timer = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -17,14 +14,6 @@ public class FlipScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
-		if (hackingScript.hacking)
-		{
-			flipTime = hackingTime;
-		}
-		else
-		{
-			flipTime = hackingTimeNormal;
-		}
 		if (flipTime < timer)
 		{
 			timer = 0;

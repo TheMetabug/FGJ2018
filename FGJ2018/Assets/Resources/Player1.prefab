@@ -334,6 +334,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flipTime: 0.5
+  hackingTime: 0.1
+  hackingTimeNormal: 0.5
+  hackingScript: {fileID: 114048423912293664}
 --- !u!114 &114613085182584552
 MonoBehaviour:
   m_ObjectHideFlags: 1
