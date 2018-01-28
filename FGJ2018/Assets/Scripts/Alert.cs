@@ -25,7 +25,7 @@ public class Alert : MonoBehaviour
         if (alertSound.isPlaying != true)
         {
             danger = true;
-            Debug.Log("apua");
+            // Debug.Log("apua");
             alertSound.loop = true;
             alertSound.Play();
 
@@ -36,7 +36,7 @@ public class Alert : MonoBehaviour
         danger = false;
         if (alertSound.isPlaying == true)
         {
-            Debug.Log("Hei-hei");
+            // Debug.Log("Hei-hei");
             alertSound.loop = false;
         }
     }

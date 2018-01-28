@@ -11,6 +11,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : NetworkBehaviour
     {
+        [SyncVar]
+        public bool mouseenabled = false;
+
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
@@ -18,7 +21,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
         [SerializeField] private float m_GravityMultiplier;
-        [SerializeField] private MouseLook m_MouseLook;
+        public MouseLook m_MouseLook;
         [SerializeField] private bool m_UseFovKick;
         [SerializeField] private FOVKick m_FovKick = new FOVKick();
         [SerializeField] private bool m_UseHeadBob;
@@ -43,6 +46,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        public void EnableMouse()
+        {
+            if (mouseenabled)
+                m_MouseLook.lockCursor = false;
+        }
+
         // Use this for initialization
         private void Start()
         {
@@ -52,6 +61,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             GameObject.Find("Camera_sneaker").GetComponent<Camera>().enabled = false;
             GameObject.Find("Camera_police").GetComponent<Camera>().enabled = true;
+            GameObject.Find("Camera_police").GetComponent<AudioListener>().enabled = true;
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -72,6 +82,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
+            EnableMouse();
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -256,7 +267,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
-        {
+        {   
             Rigidbody body = hit.collider.attachedRigidbody;
             //dont move the rigidbody if the character is on top of it
             if (m_CollisionFlags == CollisionFlags.Below)
@@ -269,6 +280,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 return;
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+        }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log(collision.gameObject.name);
+            if (collision.gameObject.name == "Player1(Clone)")
+            {
+                GameObject.Find("GameState").GetComponent<GameStateManager>().sneakerGaught = true;
+            }
         }
     }
 }

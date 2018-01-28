@@ -26,12 +26,20 @@ public class LobbyManager : NetworkLobbyManager {
 
     public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId)
     {
-		if (currentPlayers.ContainsKey(conn.connectionId))
-            currentPlayers[conn.connectionId] = player++;
+        if (player == 0)
+        {
+            if (currentPlayers.ContainsKey(conn.connectionId))
+                currentPlayers[conn.connectionId] = player++;
+        }
+        else if (player == 1)
+        {            
+            if (currentPlayers.ContainsKey(conn.connectionId))
+                currentPlayers[conn.connectionId] = player--;
+        }
         int index = currentPlayers[conn.connectionId];
 
-	Debug.Log(spawnPrefabs[index]);
-	Debug.Log(spawnPrefabs[index].transform.position);
+	    Debug.Log(spawnPrefabs[index]);
+	    Debug.Log(spawnPrefabs[index].transform.position);
 
         GameObject _temp = (GameObject)GameObject.Instantiate(spawnPrefabs[index],
             spawnPrefabs[index].transform.position,
@@ -39,4 +47,5 @@ public class LobbyManager : NetworkLobbyManager {
 		
         return _temp;
     }
+
 }
