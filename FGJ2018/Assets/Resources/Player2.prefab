@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 33503231556986470}
   - component: {fileID: 23227780679597084}
   - component: {fileID: 95240358903495392}
+  - component: {fileID: 114792965201851906}
   m_Layer: 0
   m_Name: characterPosed
   m_TagString: Untagged
@@ -592,6 +593,18 @@ MonoBehaviour:
   m_FootstepSounds: []
   m_JumpSound: {fileID: 0}
   m_LandSound: {fileID: 0}
+--- !u!114 &114792965201851906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577858859450604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbb219ad596d6047a5b189e9bac3228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipTime: 0.5
 --- !u!124 &124666631918966818
 Behaviour:
   m_ObjectHideFlags: 1

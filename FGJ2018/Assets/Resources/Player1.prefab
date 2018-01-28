@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33552416249914670}
   - component: {fileID: 23163242398026540}
   - component: {fileID: 95491340182312434}
+  - component: {fileID: 114334263768365624}
   m_Layer: 0
   m_Name: characterPosed
   m_TagString: Untagged
@@ -321,6 +322,18 @@ MonoBehaviour:
     i15: 193
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114334263768365624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247785724307000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbb219ad596d6047a5b189e9bac3228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipTime: 0.5
 --- !u!114 &114613085182584552
 MonoBehaviour:
   m_ObjectHideFlags: 1
