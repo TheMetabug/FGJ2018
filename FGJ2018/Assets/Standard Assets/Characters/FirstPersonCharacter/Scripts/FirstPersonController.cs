@@ -50,6 +50,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 return;
             }
+            GameObject.Find("Camera_sneaker").GetComponent<Camera>().enabled = false;
+            GameObject.Find("Camera_police").GetComponent<Camera>().enabled = true;
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;

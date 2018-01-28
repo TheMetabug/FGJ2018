@@ -16,6 +16,7 @@ public class PlayerController : NetworkBehaviour
             return;
         }
         GameObject.Find("Camera_sneaker").transform.parent = this.transform;
+        GameObject.Find("Camera_sneaker").GetComponent<Camera>().enabled = true;
 	}
 	
 	// Update is called once per frame
