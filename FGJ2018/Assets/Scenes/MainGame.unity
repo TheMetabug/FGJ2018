@@ -666,6 +666,7 @@ MonoBehaviour:
   hackerScore: 0
   sneakerGaught: 0
   maxHackScore: 3
+  isDone: 0
 --- !u!4 &500627767
 Transform:
   m_ObjectHideFlags: 0
@@ -3452,7 +3453,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1848655490}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.18039216, g: 0.20392159, b: 0.21568629, a: 0}
