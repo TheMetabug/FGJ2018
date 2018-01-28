@@ -195,11 +195,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hackScore: 0
+  hacking: 0
   hackButton: 104
   hackable: 0
   hackSpot: {fileID: 0}
   asdfg: {fileID: 0}
-  hacking: 0
   AlertSystem: {fileID: 0}
 --- !u!114 &114139435824371478
 MonoBehaviour:

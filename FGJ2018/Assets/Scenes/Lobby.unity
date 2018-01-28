@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 356559961}
   - component: {fileID: 356559960}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: NetworkManagerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,8 +209,8 @@ MonoBehaviour:
   isNetworkActive: 0
   matchMaker: {fileID: 0}
   m_ShowLobbyGUI: 1
-  m_MaxPlayers: 4
-  m_MaxPlayersPerConnection: 1
+  m_MaxPlayers: 50000
+  m_MaxPlayersPerConnection: 50000
   m_MinPlayers: 0
   m_LobbyPlayerPrefab: {fileID: 114769888458302502, guid: e21d9358eaa27d84799ebe70c21ab25f,
     type: 2}

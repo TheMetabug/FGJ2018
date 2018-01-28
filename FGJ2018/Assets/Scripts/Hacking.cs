@@ -1,20 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Hacking : MonoBehaviour
+public class Hacking : NetworkBehaviour
 {
+    [SyncVar]
     public int hackScore; //random score from succesful hacks
+    [SyncVar]
+    public bool hacking; // payer is hacking the PC
+
     public KeyCode hackButton; // button for hackking
     public bool hackable; // sneaker can hack the point: 1)player is in hackpoint 2) hackpoint is not yet hacked
     public HackingSpot hackSpot; // last visited/current hackpoint
     public GameObject asdfg;
-    public bool hacking; // payer is hacking the PC
     public Alert AlertSystem;
+
+    private bool isAlerted;
 
     void Start()
     {
         AlertSystem = GameObject.Find("AlertSystem").GetComponent<Alert>();
+        isAlerted = false;
     }
 
 
@@ -53,21 +60,17 @@ public class Hacking : MonoBehaviour
             {
                 hackSpot.hackTimeLeft -= Time.deltaTime;
                 hacking = true;
-                AlertSystem.StartWarning();
                 if (hackSpot.hackTimeLeft < 0)
                 {
-                    AlertSystem.StopWarning();
                     hackable = false;
-                    hackSpot.changeMaterial(1);
                     hackSpot.hacked = true;
                     Debug.Log("hacker hacked point " + hackSpot.pointID);
                     hackScore++;
+                    GameObject.Find("GameState").GetComponent<GameStateManager>().hackerScore++;
                 }
             }
             if (Input.GetKeyUp(hackButton))
             {
-                AlertSystem.StopWarning();
-                
                 hacking = false;
                 hackSpot.hackTimeLeft = hackSpot.HackTime;
                 /*hackSpot.changeMaterial(1);
@@ -75,7 +78,27 @@ public class Hacking : MonoBehaviour
                 Debug.Log("hacker hacked point " + hackSpot.pointID);
                 hackScore++; */
             }
+        }
+        
+        StartAlert();
+        StopAlert();
+    }
 
+    void StartAlert()
+    {
+        if (!isAlerted && hacking)
+        {
+            AlertSystem.StartWarning();
+            isAlerted = true;
+        }
+    }
+
+    void StopAlert()
+    {
+        if (isAlerted && hackSpot.hacked && !hacking)
+        {
+            AlertSystem.StopWarning();
+            isAlerted = false;
         }
     }
 }
