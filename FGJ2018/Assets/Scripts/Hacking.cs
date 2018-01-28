@@ -9,6 +9,14 @@ public class Hacking : MonoBehaviour
     public bool hackable; // sneaker can hack the point: 1)player is in hackpoint 2) hackpoint is not yet hacked
     public HackingSpot hackSpot; // last visited/current hackpoint
     public GameObject asdfg;
+    public bool hacking; // payer is hacking the PC
+    public Alert AlertSystem;
+
+    void Start()
+    {
+        AlertSystem = GameObject.Find("AlertSystem").GetComponent<Alert>();
+    }
+
 
     void OnTriggerEnter(Collider col)
     {
@@ -20,13 +28,22 @@ public class Hacking : MonoBehaviour
             if (hackSpot.hacked == false) //hackpoint hasn't been hacked 
             { 
                 hackable = true;
-            }         
+            }  
+            else
+            {
+                hackable = false;
+            }       
         }
     }
     void OnTriggerExit(Collider col)
     {
-       hackable = false; // player leaves the hackpoint
- 
+        hackable = false; // player leaves the hackpoint
+        AlertSystem.StopWarning();
+        hacking = false;
+        hackSpot.hackTimeLeft = hackSpot.HackTime;
+
+
+
     }
     void Update()
     {
@@ -35,8 +52,11 @@ public class Hacking : MonoBehaviour
             if (Input.GetKey(hackButton))
             {
                 hackSpot.hackTimeLeft -= Time.deltaTime;
+                hacking = true;
+                AlertSystem.StartWarning();
                 if (hackSpot.hackTimeLeft < 0)
                 {
+                    AlertSystem.StopWarning();
                     hackable = false;
                     hackSpot.changeMaterial(1);
                     hackSpot.hacked = true;
@@ -46,7 +66,9 @@ public class Hacking : MonoBehaviour
             }
             if (Input.GetKeyUp(hackButton))
             {
-                hackable = false;
+                AlertSystem.StopWarning();
+                
+                hacking = false;
                 hackSpot.hackTimeLeft = hackSpot.HackTime;
                 /*hackSpot.changeMaterial(1);
                 hackSpot.hacked = true;            

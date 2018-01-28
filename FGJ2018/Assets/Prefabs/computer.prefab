@@ -128,5 +128,6 @@ MonoBehaviour:
   HackTime: 5
   hackTimeLeft: 5
   Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 6d2028c3dff3c2b42b3ed008a9c82f26, type: 2}
   - {fileID: 2100000, guid: eef8e060e27bf7d4fb84b29dc78fdc2f, type: 2}
+  AlertSystem: {fileID: 0}

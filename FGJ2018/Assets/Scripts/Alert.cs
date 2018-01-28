@@ -20,11 +20,32 @@ public class Alert : MonoBehaviour
 		
 	}
 
+    public void StartWarning()
+    {
+        if (alertSound.isPlaying != true)
+        {
+            danger = true;
+            Debug.Log("apua");
+            alertSound.loop = true;
+            alertSound.Play();
+
+        }
+    }
+    public void StopWarning()
+    {
+        danger = false;
+        if (alertSound.isPlaying == true)
+        {
+            Debug.Log("Hei-hei");
+            alertSound.loop = false;
+        }
+    }
+
     public void StartAlert(string message, string letter, int number)
     {
         danger = true;
         
-        if (messages.Count == 0)
+        if (alertSound.isPlaying != true)
         {
             alertSound.Play();
         }
@@ -32,6 +53,8 @@ public class Alert : MonoBehaviour
         breakMessage(message, letter, number);
 
     }
+
+
 
     public void endAlert(string message,string letter,int number)
     {
