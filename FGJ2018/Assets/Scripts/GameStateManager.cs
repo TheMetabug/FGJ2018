@@ -18,7 +18,8 @@ public class GameStateManager : NetworkBehaviour
 	{
 		hackerScore = 0;
 		sneakerGaught = false;
-	}
+        GameObject.Find("NetworkManagerObject").GetComponent<UnityEngine.Networking.NetworkManagerHUD>().showGUI = false;
+    }
 	
 	// Update is called once per frame
 	void Update ()
